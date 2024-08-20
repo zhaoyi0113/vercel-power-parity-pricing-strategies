@@ -199,12 +199,6 @@ export const PRODUCTS: Record<string, Product> = {
     discount: REGIONS['5'].discount,
     link: `${STORE_URL}/cart/${REGIONS['5'].id}:1`,
   },
-  // British
-  gb: {
-    ...PRODUCT,
-    discount: REGIONS['1'].discount,
-    link: `${STORE_URL}/cart/${REGIONS['1'].id}:1`,
-  },
   // Brunei Darussalam
   bn: {
     ...PRODUCT,
