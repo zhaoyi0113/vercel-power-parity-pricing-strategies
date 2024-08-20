@@ -10,7 +10,7 @@ export function middleware(req: NextRequest) {
   console.log('request country:', req.geo);
   const country = req.geo?.country?.toLowerCase() || 'au'
 
-  console.log('middleware before ', req.nextUrl.pathname);
+  console.log('middleware before: ', req.nextUrl.pathname);
   // Update pathname
   req.nextUrl.pathname += `/${country}`
   console.log('middleware after', req.nextUrl.pathname);

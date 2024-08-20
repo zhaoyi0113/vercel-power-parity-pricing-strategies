@@ -11,7 +11,7 @@ interface Props {
   product: Product
 }
 
-export const getStaticProps: GetStaticProps<unknown, never> = async () => {
+export const getStaticProps: GetStaticProps<any, never> = async () => {
   // Get product
   const product = await api.product.fetch()
 

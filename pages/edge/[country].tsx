@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<unknown, Params> = async ({
+export const getStaticProps: GetStaticProps<any, any> = async ({
   params: { country },
 }) => {
   // Get product for country
