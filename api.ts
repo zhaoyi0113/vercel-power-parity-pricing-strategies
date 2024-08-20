@@ -626,7 +626,7 @@ export const PRODUCTS: Record<string, Product> = {
   // India
   in: {
     ...PRODUCT,
-    discount: REGIONS['5'].discount,
+    discount: REGIONS['6'].discount,
     link: `${STORE_URL}/cart/${REGIONS['5'].id}:1`,
   },
   // Indonesia
