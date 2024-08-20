@@ -88,7 +88,7 @@ export const PRODUCTS: Record<string, Product> = {
   // Australia
   au: {
     ...PRODUCT,
-    discount: REGIONS['1'].discount,
+    discount: REGIONS['2'].discount,
     link: `${STORE_URL}/cart/${REGIONS['1'].id}:1`,
   },
   // Austria
