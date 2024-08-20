@@ -1,5 +1,5 @@
-import { DELAY, REGIONS, STORE_URL } from './constants'
-import type { Country, Product } from './types'
+import { DELAY, REGIONS, STORE_URL } from './constants';
+import type { Country, Product } from './types';
 
 const PRODUCT: Product = {
   id: 'mug-nextjs',
@@ -9,7 +9,7 @@ const PRODUCT: Product = {
   image: '/mug.png',
   discount: REGIONS['1'].discount,
   link: `${STORE_URL}/cart/${REGIONS['1'].id}:1`,
-}
+};
 export const PRODUCTS: Record<string, Product> = {
   // Afghanistan
   af: {
@@ -626,7 +626,7 @@ export const PRODUCTS: Record<string, Product> = {
   // India
   in: {
     ...PRODUCT,
-    discount: REGIONS['6'].discount,
+    discount: REGIONS['default'].discount,
     link: `${STORE_URL}/cart/${REGIONS['5'].id}:1`,
   },
   // Indonesia
@@ -1507,27 +1507,24 @@ export const PRODUCTS: Record<string, Product> = {
     discount: REGIONS['1'].discount,
     link: `${STORE_URL}/cart/${REGIONS['1'].id}:1`,
   },
-}
+};
 
 export default {
   product: {
-    fetch: async ({
-      country,
-    }: { country?: Country } = {}): Promise<Product> => {
-      let product = PRODUCT
+    fetch: async ({ country }: { country?: Country } = {}): Promise<Product> => {
+      let product = PRODUCT;
 
       if (country && PRODUCTS[country]) {
-        product = PRODUCTS[country]
+        product = PRODUCTS[country];
       }
 
-      let delay = DELAY
+      let delay = DELAY;
       if (country === 'au') {
-        delay = 1250
+        delay = 1250;
       }
 
-      return new Promise((resolve) => setTimeout(() => resolve(product), delay))
+      return new Promise((resolve) => setTimeout(() => resolve(product), delay));
     },
-    countries: async (): Promise<Country[]> =>
-      Object.keys(PRODUCTS) as Country[],
+    countries: async (): Promise<Country[]> => Object.keys(PRODUCTS) as Country[],
   },
-}
+};
