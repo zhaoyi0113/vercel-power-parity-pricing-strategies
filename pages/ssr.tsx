@@ -16,9 +16,10 @@ interface Props {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  console.log('ssr: get country', req.headers);
   // Get country
   const country = String(
-    req.headers['x-vercel-ip-country'] || 'us'
+    req.headers['x-vercel-ip-country'] || 'au'
   ).toLowerCase() as Country
 
   // Get product for country

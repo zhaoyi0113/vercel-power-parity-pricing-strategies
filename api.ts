@@ -199,8 +199,8 @@ export const PRODUCTS: Record<string, Product> = {
     discount: REGIONS['5'].discount,
     link: `${STORE_URL}/cart/${REGIONS['5'].id}:1`,
   },
-  // British Indian Ocean Territory (the)
-  io: {
+  // British
+  uk: {
     ...PRODUCT,
     discount: REGIONS['1'].discount,
     link: `${STORE_URL}/cart/${REGIONS['1'].id}:1`,
@@ -1527,7 +1527,7 @@ export default {
       }
 
       let delay = DELAY
-      if (country === 'jp') {
+      if (country === 'au') {
         delay = 1250
       }
 
