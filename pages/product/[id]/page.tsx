@@ -1,4 +1,4 @@
-import { unstable_cache } from 'next/cache';
+// import { unstable_cache } from 'next/cache';
 
 interface Product {
   id: string;
@@ -20,27 +20,27 @@ const products: Product[] = [
   },
 ];
 
-const getProducts = unstable_cache(
-  async () => {
-    await new Promise((resolve) => {
-      setTimeout(() => resolve(null), 1000);
-    });
-    return products;
-  },
-  ['products'],
-  { revalidate: 3600, tags: ['products'] }
-);
+// const getProducts = unstable_cache(
+//   async () => {
+//     await new Promise((resolve) => {
+//       setTimeout(() => resolve(null), 1000);
+//     });
+//     return products;
+//   },
+//   ['products'],
+//   { revalidate: 3600, tags: ['products'] }
+// );
 
-const getProduct = unstable_cache(async (id: string): Promise<Product> => {
-  await new Promise((resolve) => {
-    setTimeout(() => resolve(null), 1000);
-  });
-  const p = products.find((p) => p.id === id);
-  if (!p) {
-    throw new Error('product not found');
-  }
-  return p;
-});
+// const getProduct = unstable_cache(async (id: string): Promise<Product> => {
+//   await new Promise((resolve) => {
+//     setTimeout(() => resolve(null), 1000);
+//   });
+//   const p = products.find((p) => p.id === id);
+//   if (!p) {
+//     throw new Error('product not found');
+//   }
+//   return p;
+// });
 
 export async function generateStaticParams() {
   return products.map((p) => ({
@@ -49,7 +49,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
-  let product = await getProduct(params.id);
+  // let product = await getProduct(params.id);
+  const product = products[0]
   return (
     <main>
       <h1>{product.id}</h1>
