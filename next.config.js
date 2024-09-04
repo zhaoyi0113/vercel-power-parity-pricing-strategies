@@ -6,6 +6,11 @@ module.exports = {
         destination: '/edge',
         permanent: false,
       },
+      {
+        source: '/edge/product/:id',
+        destination: '/product/:id',
+        permanent: false,
+      },
     ]
   },
   experimental: {
