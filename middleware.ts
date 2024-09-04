@@ -2,13 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // Set pathname were middleware will be executed
 export const config = {
-  matcher: ['/edge', '/api/hello'],
+  matcher: ['/edge', '/api/hello', '/ssr'],
 };
 
 export function middleware(req: NextRequest) {
   // Get country
-  console.log('request country:', req.geo);
+  console.log('request country:', req.geo, req.nextUrl);
   const country = req.geo?.country?.toLowerCase() || 'au';
+
+  if (req.nextUrl.pathname === '/ssr') {
+    return NextResponse.rewrite(req.nextUrl);
+  }
 
   console.log('middleware before: ', req.nextUrl.pathname);
   // Update pathname
