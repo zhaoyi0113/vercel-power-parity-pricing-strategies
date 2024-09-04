@@ -36,8 +36,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<any, any> = async ({ params: { country } }) => {
   // Get product for country
+  console.log('generating static data')
   await Promise.resolve((resolve) => setTimeout(resolve(null), 1000));
   const product = await api.product.fetch({ country });
+  console.log('finish generating static data')
 
   return {
     props: {
